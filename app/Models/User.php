@@ -42,4 +42,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function persionalData(){
+        return $this->hasOne(PersonalDetail::class,'emp_id','emp_id');
+    }
+
+    public function officialData(){
+        return $this->hasOne(OfficialDetail::class,'emp_id','emp_id');
+    }
+
+
 }

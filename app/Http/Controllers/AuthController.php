@@ -48,7 +48,12 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-          
+        $emp_id = Auth::user()->emp_id;
+        $userData = User::with('persionalData','officialData')->where('emp_id',$emp_id)->first();
+        
+        session(['emp_id' => $userData->emp_id]);
+        session(['name' => $userData->persionalData->first_name]);
+        
             return view('dashboard');
         }
         return redirect("login")->withSuccess('Opps! You do not have access');
