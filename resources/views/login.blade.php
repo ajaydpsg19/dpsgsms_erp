@@ -26,10 +26,10 @@
 
                         <div class="mb-3 text-start">
                             <label for="email" class="form-label">Email adress</label>
-                            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                            <input type="text" name="emp_id" class="form-control" placeholder="Enter Employee Id" required>
                             
-                            @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                            @if ($errors->has('emp_id'))
+                            <span class="text-danger">{{ $errors->first('emp_id') }}</span>
                            @endif
                         
                         </div>

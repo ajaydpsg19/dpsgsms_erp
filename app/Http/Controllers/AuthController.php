@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
 use Hash;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -19,27 +20,35 @@ class AuthController extends Controller
 
 
     public function postLogin(Request $request)
-
     {
-        
+       
         $request->validate([
-            'email' => 'required',
+            'emp_id' => 'required',
             'password' => 'required',
         ]);
-        $credentials = $request->only('email', 'password');
+    
+        $credentials = [
+            'emp_id' => $request->emp_id,
+            'password' => $request->password,
+        ];
+    
+       
         if (Auth::attempt($credentials)) {
+
+       
+
             return redirect()->intended('dashboard')
-                        ->withSuccess('You have Successfully loggedin');
+                        ->withSuccess('You have successfully logged in');
         }
-      
-        return redirect("/")->withSuccess('Oppes! You have entered invalid credentials');
-
+    
+        return redirect("/")->withErrors('Oops! You have entered invalid credentials');
     }
-
+    
 
     public function dashboard()
     {
         if(Auth::check()){
+           dd(Auth::user()); 
             return view('dashboard');
         }
         return redirect("login")->withSuccess('Opps! You do not have access');
