@@ -48,7 +48,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-           dd(Auth::user()); 
+          
             return view('dashboard');
         }
         return redirect("login")->withSuccess('Opps! You do not have access');
