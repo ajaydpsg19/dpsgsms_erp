@@ -20,7 +20,7 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <img src="{{ asset('storage/assets/img/bootstraper-logo.png ') }}" alt="bootraper logo" class="app-logo">
+                <img src="{{ asset('storage/assets/img/Small_logo.png ') }}" alt="bootraper logo" class="app-logo">
             </div>
             <ul class="list-unstyled components text-secondary">
                 <li>
