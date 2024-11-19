@@ -22,4 +22,6 @@ Route::get('/', [AuthController::class,'login'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('dashboard', [AuthController::class, 'dashboard']);
 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
 
